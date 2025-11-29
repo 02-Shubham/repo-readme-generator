@@ -9,7 +9,7 @@ const BackgroundEffects = () => {
       </div>
 
       {/* Uplight Glow */}
-      <div className="fixed bottom-0 left-0 right-0 h-[80vh] z-0 pointer-events-none bg-gradient-to-t from-gray-800/40 via-black/10 to-transparent"></div>
+      <div className="fixed bottom-0 left-0 right-0 h-[80vh] z-0 pointer-events-none bg-gradient-to-t from-gray-800/70 via-black/10 to-transparent"></div>
     </>
   );
 };
