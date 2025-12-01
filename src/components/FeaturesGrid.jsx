@@ -12,23 +12,27 @@ const FeatureCard = ({ icon: Icon, title, description }) => (
 );
 
 const FeaturesGrid = () => {
-  const features = [
-    {
-      icon: FileText,
-      title: "Context Aware",
-      description: "The AI understands dependency trees. It doesn't just read files; it understands how your modules interact."
-    },
-    {
-      icon: Zap,
-      title: "Instant Setup Guides",
-      description: "Automatically generates 'npm install' or 'pip install' instructions based on your lock files."
-    },
-    {
-      icon: Github,
-      title: "Direct PR Integration",
-      description: "Don't want to copy-paste? We can open a Pull Request directly to your repository with the new README."
-    }
-  ];
+const features = [
+  {
+    icon: FileText,
+    title: "Context-Aware Intelligence",
+    description:
+      "Understands your entire dependency graph and file relationships. It analyzes how modules interact, not just the code inside them."
+  },
+  {
+    icon: Zap,
+    title: "Auto-Generated Setup Guides",
+    description:
+      "Detects package managers, lock files, and environment configs to generate accurate installation and setup instructions instantly."
+  },
+  {
+    icon: Github,
+    title: "Direct GitHub PR Integration",
+    description:
+      "No copy-paste required. Automatically opens a Pull Request to your repository with the newly generated README."
+  }
+];
+
 
   return (
     <div id="features" className="border-t border-gray-800 bg-neutral-950 relative z-20">

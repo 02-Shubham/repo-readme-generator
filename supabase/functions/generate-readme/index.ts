@@ -574,11 +574,9 @@ function assemblePrompt(owner: string, repo: string, files: Map<string, string>)
    - Configuration files and their purposes
    - Optional settings and defaults
 
-7. **Contributing & License** (Brief)
+7. **Contributing & License**
    - Quick note on how to contribute (1-2 lines)
    - License type (1 line)
-
-Include <!--source: filepath--> HTML comments where content was derived from specific files.
 Make the README engaging, developer-friendly, and actionable. Use proper markdown formatting with code blocks, badges, and clear headings.`;
 
   return prompt;
