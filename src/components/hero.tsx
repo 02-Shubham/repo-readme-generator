@@ -204,7 +204,7 @@ const handleDownload = () => {
         {/* FEATURES GRID - Using neutral-950 for slightly darker contrast against the glow */}
         <div id="features" className="border-t border-gray-800 bg-neutral-950 relative z-20">
           <div className="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-800 border border-gray-800">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-px bg-gray-800 border border-gray-800">
               
               {/* Feature 1 */}
               <div className="bg-black p-8 hover:bg-neutral-900 transition-colors group">
@@ -239,6 +239,108 @@ const handleDownload = () => {
                 </p>
               </div>
 
+            </div>
+          </div>
+        </div>
+
+        {/* HOW IT WORKS SECTION */}
+        <div id="how-it-works" className="border-t border-gray-800 bg-black relative z-20">
+          <div className="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter">HOW_IT_WORKS()</h2>
+              <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+                Simple four-step process to transform your repository into professional documentation
+              </p>
+            </div>
+
+            {/* Steps Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              
+              {/* Step 1 */}
+              <div className="border border-gray-800 bg-black p-6 hover:bg-neutral-900 transition-colors group">
+                <div className="text-4xl font-black text-gray-700 mb-4 group-hover:text-white transition-colors">01</div>
+                <div className="mb-4 text-white p-2 border border-gray-800 inline-block group-hover:border-white transition-colors w-12 h-12 flex items-center justify-center">
+                  <Github size={20} />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3">Paste URL</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  Enter any public GitHub repository URL. No authentication needed for public repos.
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="border border-gray-800 bg-black p-6 hover:bg-neutral-900 transition-colors group">
+                <div className="text-4xl font-black text-gray-700 mb-4 group-hover:text-white transition-colors">02</div>
+                <div className="mb-4 text-white p-2 border border-gray-800 inline-block group-hover:border-white transition-colors w-12 h-12 flex items-center justify-center">
+                  <FileText size={20} />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3">Analyze Code</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  Our AI scans key files: package.json, requirements.txt, Dockerfile, and more.
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="border border-gray-800 bg-black p-6 hover:bg-neutral-900 transition-colors group">
+                <div className="text-4xl font-black text-gray-700 mb-4 group-hover:text-white transition-colors">03</div>
+                <div className="mb-4 text-white p-2 border border-gray-800 group-hover:border-white transition-colors w-12 h-12 flex items-center justify-center">
+                  <Zap size={20} />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3">AI Generation</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  Powered by Gemini API, generates comprehensive, well-structured README.md instantly.
+                </p>
+              </div>
+
+              {/* Step 4 */}
+              <div className="border border-gray-800 bg-black p-6 hover:bg-neutral-900 transition-colors group">
+                <div className="text-4xl font-black text-gray-700 mb-4 group-hover:text-white transition-colors">04</div>
+                <div className="mb-4 text-white p-2 border border-gray-800  group-hover:border-white transition-colors w-12 h-12 flex items-center justify-center">
+                  <Download size={20} />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3">Download & Use</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  Preview in real-time, download README.md, or integrate directly into your project.
+                </p>
+              </div>
+
+            </div>
+
+            {/* Process Flow Visualization */}
+            <div className="mt-16 border border-gray-800 bg-black p-8">
+              <div className="text-center mb-8">
+                <p className="text-gray-500 text-sm font-mono mb-4">EXECUTION_FLOW</p>
+              </div>
+              <div className="flex flex-col md:flex-row items-center justify-between text-center gap-4">
+                <div className="flex-1">
+                  <div className="border border-gray-700 rounded-lg p-4 mb-4 bg-neutral-950">
+                    <p className="text-white font-bold text-sm">Repository</p>
+                    <p className="text-gray-500 text-xs mt-2">GitHub URL</p>
+                  </div>
+                </div>
+                <div className="text-gray-600 hidden md:block">→</div>
+                <div className="flex-1">
+                  <div className="border border-gray-700 rounded-lg p-4 mb-4 bg-neutral-950">
+                    <p className="text-white font-bold text-sm">File Analysis</p>
+                    <p className="text-gray-500 text-xs mt-2">Extract Context</p>
+                  </div>
+                </div>
+                <div className="text-gray-600 hidden md:block">→</div>
+                <div className="flex-1">
+                  <div className="border border-gray-700 rounded-lg p-4 mb-4 bg-neutral-950">
+                    <p className="text-white font-bold text-sm">LLM Processing</p>
+                    <p className="text-gray-500 text-xs mt-2">Gemini API</p>
+                  </div>
+                </div>
+                <div className="text-gray-600 hidden md:block">→</div>
+                <div className="flex-1">
+                  <div className="border border-gray-700 rounded-lg p-4 mb-4 bg-neutral-950">
+                    <p className="text-white font-bold text-sm">README.md</p>
+                    <p className="text-gray-500 text-xs mt-2">Download/Preview</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -36,9 +36,9 @@ export default function Preview({ markdown, onDownload }: PreviewProps) {
         <Button
           onClick={onDownload}
           size="sm"
-          className="bg-primary text-primary-foreground hover:bg-primary/90"
+          className="ml-2 bg-white text-black hover:bg-gray-200 disabled:bg-gray-800 disabled:text-gray-500 px-6 py-2 font-bold text-sm transition-colors flex items-center gap-2 whitespace-nowrap"
         >
-          <Download className="mr-2 h-4 w-4" />
+          <Download className="mr-2 h-4 w-4 " />
           Download README.md
         </Button>
       </CardHeader>
