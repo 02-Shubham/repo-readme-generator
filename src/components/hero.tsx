@@ -118,7 +118,7 @@ const handleDownload = () => {
               <div className="hidden md:flex gap-8 text-sm font-bold">
                 <a href="#how-it-works" className="hover:text-white transition-colors">HOW_IT_WORKS</a>
                 <a href="#features" className="hover:text-white transition-colors">FEATURES</a>
-                <a href="https://github.com" className="hover:text-white transition-colors flex items-center gap-2">
+                <a href="https://github.com/02-Shubham" className="hover:text-white transition-colors flex items-center gap-2">
                   <Github size={16} /> GITHUB
                 </a>
               </div>
