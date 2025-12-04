@@ -1,12 +1,73 @@
 import React, { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
-const HeroSection = ({ onGenerate, isGenerating }) => {
+const HeroSection = ({ onGenerate, isGenerating, setIsGenerating, setReadme, setProvenance }) => {
   const [url, setUrl] = useState('');
+  const { toast } = useToast();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onGenerate(url);
+    
+    if (!url.trim()) {
+      toast({
+        title: 'Error',
+        description: 'Please enter a GitHub repository URL',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    setIsGenerating(true);
+    setReadme('');
+    setProvenance([]);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('generate-readme', {
+        body: { repoUrl: url },
+      });
+
+      if (error) throw error;
+
+      const response = data;
+      setReadme(response.readme);
+      setProvenance(response.provenance);
+
+      toast({
+        title: 'Success',
+        description: 'README generated successfully!',
+      });
+    } catch (error) {
+      console.error('Error generating README:', error);
+      
+      let errorMessage = 'Failed to generate README';
+      
+      if (error?.message) {
+        errorMessage = error.message;
+      } else if (error?.error) {
+        errorMessage = error.error;
+      } else if (typeof error === 'string') {
+        errorMessage = error;
+      }
+      
+      if (errorMessage.includes('rate limit')) {
+        errorMessage += '\n\nGitHub limits unauthenticated requests to 60 per hour. Try again in a few minutes.';
+      } else if (errorMessage.includes('forbidden') || errorMessage.includes('private')) {
+        errorMessage += '\n\nThis repository may be private or require authentication.';
+      } else if (errorMessage.includes('not found')) {
+        errorMessage += '\n\nPlease check the repository URL and try again.';
+      }
+      
+      toast({
+        title: 'Error',
+        description: errorMessage,
+        variant: 'destructive',
+        duration: 6000,
+      });
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   return (

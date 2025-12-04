@@ -1,58 +1,3 @@
-// import React, { useState } from 'react';
-// import { Terminal } from 'lucide-react';
-// import BackgroundEffects from '@/components/BackgroundEffects';
-// import Navbar from '@/components/Navbar';
-// import HeroSection from '@/components/HeroSection';
-// import PreviewConsole from '@/components/PreviewConsole';
-// import FeaturesGrid from '@/components/FeaturesGrid';
-
-// const LandingPage = () => {
-//   const [isGenerating, setIsGenerating] = useState(false);
-
-//   // This function is passed down to the HeroSection
-//   const handleGenerate = (url) => {
-//     if(!url) return; 
-//     console.log("Generating for:", url);
-//     setIsGenerating(true);
-    
-//     // Simulate API call
-//     setTimeout(() => {
-//       setIsGenerating(false);
-//     }, 3000);
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-black text-gray-300 font-mono selection:bg-white selection:text-black overflow-hidden flex flex-col">
-//       <BackgroundEffects />
-      
-//       <Navbar />
-      
-//       <main className="flex-grow">
-//         <HeroSection onGenerate={handleGenerate} isGenerating={isGenerating} />
-//         <PreviewConsole isGenerating={isGenerating} />
-//         <FeaturesGrid />
-//       </main>
-
-//       {/* Simple Footer Component Inline (or extract it too) */}
-//       <footer className="border-t border-gray-800 py-12 bg-black relative z-20">
-//         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-//           <div className="flex items-center gap-2 mb-4 md:mb-0">
-//             <div className="bg-white text-black p-0.5">
-//                 <Terminal size={14} strokeWidth={3} />
-//             </div>
-//             <span className="text-white font-bold text-sm">REPO_READER</span>
-//           </div>
-//           <div className="text-gray-600 text-xs font-mono">
-//             © 2024 BUILD_LABS. NO RIGHTS RESERVED.
-//           </div>
-//         </div>
-//       </footer>
-//     </div>
-//   );
-// };
-
-// export default LandingPage;
-
 import React, { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import Preview from '@/components/Preview';
@@ -187,9 +132,11 @@ const handleDownload = () => {
             v1.0.0 // NOW_LIVE
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-9 leading-none">
-           Stop Writing README. <br />
-              Start Shipping Faster!
+          <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-6 leading-none">
+            Stop Writing README.<br />
+            <span className="text-transparent mt-10 pt-10 bg-clip-text bg-gradient-to-r from-gray-400 to-white">
+              Start Shipping Faster.
+            </span>
           </h1>
           
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-500 mb-12">
@@ -241,13 +188,6 @@ const handleDownload = () => {
                      <div className="w-3 h-3 bg-green-500 rounded-none hover:bg-green-400 transition-colors"></div>
                   </div>
                   <div className="text-xs text-gray-500 font-bold tracking-widest">PREVIEW.md</div>
-                  <button 
-                    onClick={handleDownload}
-                    className="flex items-center gap-2 text-xs font-bold text-white hover:text-gray-300 transition-colors"
-                  >
-                    <Download size={14} />
-                    SAVE_FILE
-                  </button>
                 </div>
 
                 {/* Actual Markdown Preview Component */}
@@ -313,7 +253,7 @@ const handleDownload = () => {
               <span className="text-white font-bold text-sm">REPO_READER</span>
             </div>
             <div className="text-gray-600 text-xs font-mono">
-              © 2024 BUILD_LABS. NO RIGHTS RESERVED.
+              Build with ❤️ by <a href='02-Shubham.vercel.app'>Shubham</a>
             </div>
           </div>
         </footer>

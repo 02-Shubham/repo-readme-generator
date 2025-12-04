@@ -621,17 +621,22 @@ async function callLLM(prompt: string): Promise<string> {
   if (!response.ok) {
     const errorText = await response.text();
     console.error('Gemini API error:', response.status, errorText);
-    throw new Error(`AI generation failed: ${response.status}`);
+    throw new Error(`AI generation failed: ${response.status} - ${errorText}`);
   }
 
   const data = await response.json();
+  console.log('Gemini API response received:', JSON.stringify(data, null, 2));
   
   // Extract text from Gemini's response format
   if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
-    return data.candidates[0].content.parts[0].text;
+    const generatedText = data.candidates[0].content.parts[0].text;
+    console.log('Successfully extracted README text, length:', generatedText.length);
+    return generatedText;
   }
   
-  throw new Error('Unexpected response format from Gemini API');
+  // Debug: log the full response if parsing failed
+  console.error('Failed to extract text from Gemini response. Full response:', JSON.stringify(data));
+  throw new Error('Unexpected response format from Gemini API - no text in candidates');
 }
 
 /**
